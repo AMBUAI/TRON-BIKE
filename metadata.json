@@ -1,0 +1,6 @@
+{
+  "name": "TRON BIKE",
+  "description": "A semi-3D, 6-player online multiplayer light-cycle arcade game built as a mobile-first landscape PWA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
