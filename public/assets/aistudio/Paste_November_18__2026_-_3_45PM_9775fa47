@@ -1,0 +1,994 @@
+MASTER PROMPT — TRON BIKE
+
+A Semi-3D, 5-Player Online Multiplayer Light Cycle Game
+
+Build a complete, polished, mobile-first online multiplayer TRON-inspired light-cycle game as an installable Progressive Web App (PWA).
+
+The game must deliver a premium futuristic arcade experience inspired by the classic TRON light-cycle concept, with enormous open-world arena gameplay, glowing neon trails, semi-3D graphics, smooth bike movement, real-time multiplayer, player accounts, friends, private rooms and cinematic victory sequences.
+
+IMPORTANT: This is a complete game development specification. Implement the actual working game, not just a visual prototype, mockup, landing page or collection of non-functional screens.
+
+Do not omit features, replace real multiplayer with simulated multiplayer, or simplify the game into a small arena.
+
+---
+
+1. CORE GAME CONCEPT
+
+The game is a last-player-standing TRON light-cycle battle.
+
+- Support up to 5 real human players in one online match.
+- Minimum 2 players to start a match.
+- Every player controls a futuristic neon motorcycle.
+- Bikes automatically move forward continuously.
+- Players can only turn left or right.
+- Every bike leaves a permanent glowing vertical light wall/trail behind it while alive.
+- Players must avoid colliding with any active light trail and the outer arena boundary.
+- The last surviving player wins.
+- There is absolutely no match time limit.
+- Matches continue for as long as necessary until a winner is determined.
+
+The game should feel exciting, competitive, smooth and visually impressive.
+
+2. MOBILE-ONLY REQUIREMENT
+
+The game is designed exclusively for mobile phones.
+
+- Mobile-first interface and gameplay.
+- Support different mobile screen sizes and aspect ratios.
+- Landscape orientation is mandatory.
+- Use landscape orientation locking where supported by the browser and PWA.
+- If the player opens the game in portrait mode, display a full-screen rotate-your-phone message.
+- Do not allow normal gameplay in portrait mode.
+- The interface, HUD, camera controls and touch gestures must be optimized for landscape screens.
+- Prevent accidental browser scrolling, zooming, pull-to-refresh and unwanted touch gestures during gameplay.
+- Maintain smooth performance on reasonably capable Android and iOS phones.
+
+Do not create a desktop-oriented game interface and simply shrink it for mobile.
+
+3. SEMI-3D GRAPHICS AND VISUAL STYLE
+
+The entire game must have a polished semi-3D appearance.
+
+It must not look like a flat 2D browser game.
+
+Visual requirements:
+
+- Three-dimensional-looking futuristic motorcycles.
+- Proper bike proportions, wheels, frames and glowing components.
+- Visible depth and perspective.
+- Large digital grid arena.
+- Glowing neon light walls.
+- Smooth lighting and reflections.
+- Futuristic atmosphere.
+- Strong sense of scale.
+- Smooth camera movement.
+- Realistic-looking bike turning and leaning animations.
+- Cinematic elimination and victory effects.
+
+Use a premium futuristic TRON-inspired visual identity.
+
+Suggested palette:
+
+- Deep black and charcoal backgrounds.
+- Electric blue.
+- Cyan.
+- Hot pink.
+- Purple.
+- Other distinguishable neon colours for additional players.
+
+Use bloom, controlled glow, emissive materials, shadows and subtle reflections.
+
+Avoid childish cartoon graphics, flat vector graphics and excessive interface clutter.
+
+The game should look like a proper futuristic arcade game.
+
+4. THE ENORMOUS OPEN ARENA
+
+The map is one enormous, continuous, open digital arena.
+
+This is one of the most important requirements.
+
+The arena must be large enough for five players to ride around for an extended period, create extensive trail patterns, chase each other and develop complex survival strategies.
+
+Arena specifications:
+
+- One enormous playable area.
+- A continuous flat digital grid surface.
+- No separate rooms.
+- No disconnected zones.
+- No multiple maps.
+- No internal obstacles.
+- No buildings.
+- No pillars.
+- No structures.
+- No internal walls.
+- No barriers.
+- No objects blocking the riding area.
+
+The only physical boundaries are the outer boundaries of the arena.
+
+The arena must have enough playable area to make five-player matches interesting rather than cramped.
+
+Outer boundary walls
+
+Create a clearly visible, tall, glowing futuristic energy wall around the entire perimeter.
+
+- Bright neon appearance.
+- Visible from far away.
+- Proper 3D height and depth.
+- Continuous perimeter with no accidental gaps.
+- Clearly distinguishable from the playable surface.
+
+Touching or crossing the energy boundary eliminates the player.
+
+The boundary should look like an enormous glowing digital barrier.
+
+Camera and world scale
+
+The arena should feel enormous.
+
+Use appropriate camera perspective and world rendering so players can understand their position and see other bikes and distant light trails.
+
+Do not shrink the map simply because the mobile screen is small.
+
+The camera should follow the player's bike smoothly and support the large map without exposing rendering problems.
+
+5. MOTORCYCLE MOVEMENT — CLASSIC TRON RULES
+
+Use classic automatic light-cycle movement.
+
+Every bike must:
+
+- Move forward automatically.
+- Maintain continuous movement.
+- Never require an acceleration button.
+- Never require a brake button.
+- Never require a throttle control.
+- Never allow reversing.
+- Never allow manually stopping the bike.
+
+The only steering actions are:
+
+- Turn left.
+- Turn right.
+
+Steering implementation
+
+Use mobile swipe gestures instead of large steering buttons.
+
+- Swipe left to turn left.
+- Swipe right to turn right.
+- Use clear, responsive swipe recognition.
+- Turning should be smooth and visually polished.
+- The bike should lean into turns.
+- The motorcycle should not teleport.
+- Avoid jitter, delayed turns and accidental double turns.
+- Use consistent turning angles and movement rules for every player.
+- Use a reliable turning cooldown or input validation to prevent impossible instant direction reversals.
+
+The controls must feel natural and responsive.
+
+There must be no large left/right buttons covering the game view.
+
+The eye icon for camera switching must remain independently usable and must not accidentally trigger steering.
+
+6. LIGHT TRAIL SYSTEM
+
+Every living bike continuously creates a glowing vertical light wall behind it.
+
+Each trail must:
+
+- Follow the bike accurately.
+- Have visible thickness and height.
+- Have a strong neon glow.
+- Match the assigned colour of its motorcycle.
+- Remain in the world after the bike passes.
+- Be visible to every player.
+- Be synchronized across all devices.
+- Form continuous, properly connected trails without gaps.
+
+Trails must have proper collision detection.
+
+A player is eliminated if their motorcycle collides with:
+
+1. Their own active light trail.
+2. Another living player's active light trail.
+3. The outer arena boundary.
+
+Do not allow bikes to pass through trails.
+
+Do not allow collision detection to fail because of high movement speed or network latency.
+
+Use reliable swept collision detection or an equivalent method to prevent fast-moving bikes from skipping through trails.
+
+7. FIVE DIFFERENT RANDOM BIKE COLOURS
+
+Every match must assign five different neon colours to the five players randomly.
+
+Rules:
+
+- All five players must have unique colours.
+- Never assign the same colour to two players in one match.
+- Each bike and its light trail use the same assigned colour.
+- The colour is displayed beside the player's name.
+- All players see the same colour assignments.
+- Colours remain unchanged throughout the match.
+- Randomize the assignments again for a new match or rematch.
+
+Use a carefully selected palette of five visually distinguishable neon colours.
+
+Do not allow random colour assignment to create visually indistinguishable players.
+
+8. PLAYER SPAWNING
+
+Every match starts with five randomly selected spawn locations.
+
+Spawn rules:
+
+- Randomize spawn positions for every new match.
+- Distribute players around the enormous arena.
+- Maintain sufficient distance between all bikes.
+- Never spawn two bikes on top of each other.
+- Avoid immediate collisions.
+- Make sure each bike has sufficient clear space in front of it.
+- Spawn all five bikes within the playable boundary.
+- Ensure the positions are synchronized across all devices.
+
+The five players should not always spawn at the same fixed positions.
+
+9. MATCH COUNTDOWN
+
+Before each match starts, display a synchronized countdown.
+
+Sequence:
+
+3
+
+2
+
+1
+
+GO!
+
+Requirements:
+
+- All five players see the same countdown.
+- Countdown timing is synchronized.
+- Bikes remain stationary before GO.
+- Players cannot steer before GO.
+- Bikes begin automatic movement at GO.
+- Play distinct countdown sound effects.
+- Play a special starting sound at GO.
+
+The match must not begin for one player before the others.
+
+10. FIRST-PERSON AND THIRD-PERSON CAMERA
+
+Each player can independently switch between two gameplay perspectives.
+
+Provide a visible eye icon on the gameplay screen.
+
+Tapping the eye icon switches between:
+
+FIRST-PERSON VIEW
+
+- Camera positioned from the rider's perspective.
+- The player sees the digital arena from the bike's viewpoint.
+- The experience should feel immersive.
+- Keep sufficient visibility to understand the road ahead.
+
+THIRD-PERSON VIEW
+
+- Camera positioned behind the motorcycle.
+- The complete bike should be visible.
+- The player can see the light trail forming behind them.
+- Use a smooth chase camera.
+
+Requirements:
+
+- Switching must be smooth and immediate.
+- Camera switching must not interrupt movement.
+- Camera switching must not affect steering.
+- Each player controls their own camera preference independently.
+- The eye icon must remain visible and easy to tap.
+- Camera movement should not produce uncomfortable sudden rotations.
+
+Do not force all five players to use the same camera perspective.
+
+11. ELIMINATION SYSTEM
+
+Elimination is permanent for the current match.
+
+A player is eliminated when:
+
+- Their bike hits their own active light trail.
+- Their bike hits another player's active light trail.
+- Their bike hits or crosses the outer energy boundary.
+
+When a player dies:
+
+1. Stop their bike.
+2. Play an appropriate crash animation.
+3. Show a proper visual elimination effect.
+4. Remove their motorcycle from the active arena.
+5. Immediately remove their entire light trail/wall from the arena.
+6. Remove their trail's collision objects as well.
+7. Mark them as eliminated.
+8. Switch their client to spectator mode.
+
+IMPORTANT: An eliminated player's entire trail must disappear, not just the motorcycle.
+
+The trail must no longer block or eliminate surviving players.
+
+Elimination must be synchronized for everyone.
+
+Do not allow eliminated players to rejoin the active match.
+
+12. SIMULTANEOUS ELIMINATIONS
+
+If two players hit each other's light trails at almost exactly the same time, both players must be eliminated.
+
+This is a deliberate game rule.
+
+Do not arbitrarily save one player because of network timing.
+
+Use authoritative collision resolution and a small, consistent simultaneous-collision tolerance window.
+
+If the collision events qualify as simultaneous:
+
+- Eliminate both players.
+- Remove both bikes.
+- Remove both complete light trails.
+- Move both players into spectator mode.
+- Update the remaining-player count.
+- Display the special simultaneous death message.
+
+The exact announcement must be:
+
+THEY KISSED THEIR DEATH
+
+Display the names of both eliminated players beneath the announcement.
+
+All clients must receive the same result.
+
+13. LIVE DEATH ANNOUNCEMENTS
+
+Whenever a player is eliminated, show a notification at the top of the gameplay screen.
+
+The message must identify the eliminated player and the reason.
+
+Examples:
+
+PLAYER NAME was eliminated by PLAYER NAME
+
+PLAYER NAME crashed into the energy boundary
+
+For simultaneous deaths:
+
+THEY KISSED THEIR DEATH
+
+Show both players' names.
+
+Requirements:
+
+- Announcements appear for all surviving players and spectators.
+- Display the correct player names.
+- Identify the responsible player when a trail collision causes elimination.
+- Identify the energy boundary when that causes elimination.
+- Use an appropriate visual effect.
+- Keep the message visible for a few seconds.
+- Automatically disappear.
+- Never block too much of the gameplay view.
+- Synchronize the announcement across all devices.
+
+Do not display incorrect or invented elimination reasons.
+
+14. SPECTATOR MODE
+
+An eliminated player must remain connected to the match as a spectator.
+
+They must not be removed from the multiplayer room.
+
+Spectator requirements:
+
+- Automatically switch to spectator mode after elimination.
+- Allow a free camera.
+- Let spectators move the camera around the entire arena.
+- Allow them to look at surviving players.
+- Allow them to observe the light trails.
+- Allow them to explore different camera angles.
+- Keep them updated with live match events.
+- Display player names and remaining-player information.
+- Show elimination announcements.
+- Keep spectators connected until the match ends.
+
+Spectators must not:
+
+- Control any surviving bike.
+- Create new light trails.
+- Change the score or game state.
+- Interfere with active players.
+- Affect collision detection.
+
+Do not automatically force spectators to follow one player. They have chosen free-camera spectating.
+
+15. LAST-PLAYER-STANDING WIN CONDITION
+
+The game is a survival match.
+
+- No time limit.
+- No round timer.
+- No artificial match ending.
+- No automatic elimination after a certain duration.
+- Continue until one player remains.
+
+When only one living player remains:
+
+- End the match.
+- Declare that player the winner.
+- Stop active gameplay.
+- Prevent further steering.
+- Display the winner.
+- Begin the cinematic victory sequence.
+
+All clients must agree on the final result.
+
+If every player is eliminated in the same simultaneous event, handle it as a draw rather than leaving the match stuck.
+
+16. CINEMATIC WINNER ANIMATION
+
+The victory sequence is an important feature.
+
+When only one player remains, show a cinematic celebration.
+
+Sequence:
+
+1. End the active match.
+2. Freeze normal gameplay.
+3. Transition the camera smoothly to a cinematic third-person view.
+4. Focus on the winning motorcycle.
+5. Show the winning bike performing a proper wheelie stunt.
+6. Lift the front wheel with believable motorcycle movement.
+7. Animate the bike smoothly without clipping or unnatural movement.
+8. Show the neon trail glowing dramatically.
+9. Display the winner's username.
+10. Display the announcement:
+
+LAST SURVIVOR — WINNER
+
+The wheelie is a victory animation, not an additional gameplay ability.
+
+After the stunt, transition to the final results screen.
+
+17. FINAL RESULTS SCREEN
+
+Display:
+
+- Winner's username.
+- Winner's assigned bike colour.
+- A victory animation or image of the winning bike.
+- Final player standings.
+- All eliminated players.
+- Their elimination reasons.
+- Total number of players.
+- Match result.
+
+Provide two clear options:
+
+PLAY AGAIN
+
+RETURN TO MENU
+
+For an online rematch, require the players who are still in the room to agree before restarting.
+
+A rematch must reset:
+
+- All five player statuses.
+- All bike positions.
+- All light trails.
+- All colours.
+- All collision states.
+- The spectator states.
+- The countdown.
+- The match result.
+
+Generate new random spawn locations and new random unique bike colours.
+
+Never carry over trails or elimination states from the previous match.
+
+18. PLAYER ACCOUNT AND UNIQUE ID SYSTEM
+
+The game must have a proper persistent player identity system.
+
+When someone first opens or installs the PWA:
+
+- Create their player account/identity.
+- Generate a unique 12-character alphanumeric Player ID.
+- Example: A7K9P2X5M8Q4.
+- Every player must have a different ID.
+- The ID must be permanently associated with their account.
+- Display their ID in their profile.
+- Provide a copy-ID button.
+- Allow them to share their ID with friends.
+
+The ID must be generated and uniqueness-checked securely on the backend.
+
+Do not rely only on a locally generated ID that could collide or disappear.
+
+Persist account identity across app restarts and devices.
+
+Provide an appropriate account recovery or identity restoration method.
+
+Do not expose private account information to other players.
+
+19. USER PROFILE
+
+Create a proper player profile section.
+
+Include:
+
+- Username.
+- Unique 12-character Player ID.
+- Profile avatar.
+- Copy Player ID.
+- Share Player ID.
+- Friends list.
+- Incoming friend requests.
+- Outgoing friend requests.
+- Online/offline status.
+- Basic match statistics.
+
+Allow users to change their display username.
+
+Usernames must be validated and displayed consistently.
+
+20. FRIENDS SYSTEM
+
+Players must be able to create a friends list.
+
+Features:
+
+- Search for another player using their exact 12-character Player ID.
+- Send friend requests.
+- Receive friend requests.
+- Accept requests.
+- Decline requests.
+- Remove friends.
+- View the friends list.
+- See online/offline status.
+- See whether a friend is currently in a match or lobby where appropriate.
+
+Avoid duplicate friend requests and duplicate friend entries.
+
+Use backend validation for friend relationships.
+
+Do not allow a player to add themselves.
+
+21. DIRECT FRIEND INVITATIONS
+
+Players must be able to invite friends directly into a private multiplayer room.
+
+From the friends list:
+
+- Select a friend.
+- Send a game invitation.
+- The friend receives an in-app invitation.
+- The invitation has ACCEPT and DECLINE options.
+- Accepting takes the friend directly into the host's private lobby.
+- No manual room-code entry should be necessary.
+- Host can invite multiple friends.
+- The room can contain a maximum of five players.
+- Invitations expire if the room closes or the match starts.
+- Prevent duplicate or invalid invitations.
+
+Friends must not need to manually enter a room code when accepting a direct invitation.
+
+22. MULTIPLAYER HOST/JOIN SYSTEM
+
+Use the same private-room multiplayer concept as the user's other games.
+
+The main multiplayer menu must provide:
+
+HOST GAME
+
+JOIN GAME
+
+HOST GAME
+
+When a player selects HOST GAME:
+
+- Create a new private multiplayer room.
+- Generate a unique 6-character alphanumeric room code.
+- Display the code clearly.
+- Provide a copy-code option.
+- Display the lobby.
+- Host becomes the room owner.
+- Allow the host to invite friends directly.
+- Allow other players to join through the room code.
+
+JOIN GAME
+
+When a player selects JOIN GAME:
+
+- Display a room-code input.
+- Allow the player to enter the 6-character code.
+- Validate the code on the backend.
+- Join the correct room.
+- Display the lobby.
+
+Validate:
+
+- Invalid room codes.
+- Expired rooms.
+- Full rooms.
+- Rooms already in progress.
+- Duplicate joining.
+- Disconnected players.
+
+Never let more than five players enter one match.
+
+23. MULTIPLAYER LOBBY
+
+Create a polished futuristic neon lobby.
+
+The lobby must display five player slots.
+
+Each occupied slot shows:
+
+- Player username.
+- Player avatar.
+- Unique assigned bike colour.
+- Ready status.
+- Host indicator where appropriate.
+
+Display empty slots for players who have not joined.
+
+Players must see lobby updates in real time.
+
+Lobby requirements:
+
+- Display the room code.
+- Provide copy-code functionality.
+- Display the host clearly.
+- Show connected players.
+- Show player readiness.
+- Allow players to mark themselves ready.
+- Allow the host to invite friends.
+- Allow the host to start the game only when at least two players are present and all joined players are ready.
+- Host alone controls the start action.
+- Lock the lobby once the match begins.
+- Prevent new players from joining an active match.
+
+The game must support matches with 2, 3, 4 or 5 players, with five being the maximum.
+
+24. REAL-TIME MULTIPLAYER ENGINE
+
+This must be genuine online multiplayer.
+
+Do not simulate other players with locally generated bikes.
+
+Use an appropriate backend architecture, such as Supabase with:
+
+- Authentication or persistent guest identities.
+- PostgreSQL.
+- Realtime communication.
+- Secure room management.
+- Server-side game validation.
+- Row Level Security.
+- Edge Functions or an equivalent authoritative game service where appropriate.
+
+Inspect and reuse the existing working project infrastructure if available.
+
+Do not unnecessarily replace existing working authentication, database or multiplayer systems.
+
+If an existing backend cannot be accessed, implement a complete, properly structured backend for this game rather than pretending that an external system is already connected.
+
+Synchronization
+
+Synchronize:
+
+- Player identities.
+- Lobby membership.
+- Ready states.
+- Bike positions.
+- Bike directions.
+- Bike movement.
+- Turning inputs.
+- Light-trail creation.
+- Light-trail removal.
+- Collision events.
+- Elimination results.
+- Elimination announcements.
+- Remaining-player count.
+- Spectator status.
+- Winner determination.
+- Match state.
+- Rematch voting.
+
+All five players must see the same match.
+
+Use server-authoritative match state and collision resolution.
+
+Do not trust a client to declare that it has won or that another player has died.
+
+Use suitable interpolation and prediction to make bike movement appear smooth despite network latency.
+
+Do not let clients independently invent different collision outcomes.
+
+Reconnection
+
+If a player temporarily disconnects:
+
+- Attempt to reconnect automatically.
+- Restore their room membership.
+- Restore the correct match state.
+- Restore their bike position and direction if they are still alive.
+- Restore their elimination/spectator state if they are already dead.
+- Restore the current remaining-player count.
+- Restore the correct match result if the match has ended.
+
+Do not restart the entire match because of one temporary disconnection.
+
+Define a reasonable reconnection grace period and prevent disconnected clients from continuing to issue stale movement commands.
+
+25. AUDIO AND MUSIC
+
+Use high-quality futuristic electronic sound design.
+
+Include:
+
+Background music
+
+- Dark futuristic electronic music.
+- TRON-inspired atmospheric arcade soundtrack.
+- Suitable intensity for a long survival match.
+- Music must not become annoying during extended matches.
+
+Gameplay sounds
+
+- Bike engine or electronic humming.
+- Continuous riding ambience.
+- Turning sounds.
+- Light-trail activation.
+- Collision sounds.
+- Boundary crash sounds.
+- Bike destruction/elimination.
+- Countdown sounds.
+- GO/start sound.
+- Victory music.
+- Defeat music.
+- Wheelie celebration sound.
+
+Use genuine, high-quality sound assets where legally available, or create original sound effects.
+
+Do not use fake placeholder sounds as the finished audio system.
+
+Provide proper audio settings.
+
+26. SETTINGS MENU
+
+Create a proper Settings menu containing:
+
+- Master volume.
+- Background music volume.
+- Sound effects volume.
+- Music ON/OFF.
+- Sound effects ON/OFF.
+- Camera preference where appropriate.
+- Rule Book.
+- Return to Menu.
+
+Save user preferences so they persist across sessions.
+
+27. RULE BOOK
+
+Add a complete Rule Book inside Settings.
+
+Include:
+
+1. Objective of the game.
+2. How to join a match.
+3. How to host a match.
+4. How to invite friends.
+5. Player limit.
+6. Bike movement rules.
+7. Swipe steering controls.
+8. First-person camera.
+9. Third-person camera.
+10. Eye icon camera switching.
+11. Light-trail mechanics.
+12. Collision rules.
+13. Outer energy boundary rules.
+14. Elimination rules.
+15. Simultaneous elimination rules.
+16. Spectator mode.
+17. Free spectator camera.
+18. Last-player-standing victory.
+19. Wheelie victory animation.
+20. Rematch rules.
+
+Explain everything clearly enough for a new player.
+
+28. MAIN MENU AND NAVIGATION
+
+Create a polished futuristic main menu.
+
+Include:
+
+- Game title: TRON BIKE.
+- PLAY ONLINE.
+- HOST GAME.
+- JOIN GAME.
+- FRIENDS.
+- PROFILE.
+- SETTINGS.
+- RULE BOOK.
+
+Use a futuristic neon interface consistent with the game.
+
+Avoid unnecessary menu clutter.
+
+All buttons and menu options must work.
+
+The game should open into a clear main menu rather than immediately starting gameplay.
+
+29. PWA INSTALLATION
+
+Build the game as an installable PWA.
+
+Requirements:
+
+- Proper web app manifest.
+- App name: TRON BIKE.
+- Appropriate app icon.
+- Installable on supported Android and iOS devices.
+- Standalone app experience where supported.
+- Appropriate splash screen.
+- Persistent player identity.
+- Proper asset caching.
+- Efficient loading.
+- Handle offline and network-loss states gracefully.
+
+The multiplayer game requires an internet connection.
+
+Do not pretend that online matches can continue without an internet connection.
+
+The app should still open its basic interface and cached assets where possible, and clearly explain when the player is offline.
+
+30. GAME PERFORMANCE AND TECHNICAL QUALITY
+
+Performance is extremely important.
+
+The game must handle five simultaneous bikes and potentially extensive light trails.
+
+Requirements:
+
+- Smooth rendering.
+- Stable physics.
+- Efficient trail rendering.
+- Efficient collision detection.
+- Optimized mobile graphics.
+- Controlled particle effects.
+- Efficient network updates.
+- Low-latency multiplayer synchronization.
+- Smooth camera transitions.
+- Responsive swipe input.
+- Proper memory management.
+- No unnecessary rendering or network updates.
+- No uncontrolled growth of trail data.
+- No visual glitches when a player is eliminated.
+- No duplicate elimination events.
+- No duplicate winner declarations.
+
+Use an appropriate 3D rendering technology, such as Three.js with WebGL, or another suitable solution.
+
+Choose a sensible architecture for a semi-3D mobile multiplayer game.
+
+Do not sacrifice the enormous arena or correct gameplay mechanics just to make the implementation easier.
+
+31. IMPORTANT GAMEPLAY EDGE CASES
+
+Handle these cases properly:
+
+- Two players hit each other's trails simultaneously.
+- Multiple players are eliminated in one collision event.
+- A player hits their own trail.
+- A player reaches the outer energy wall.
+- A player disconnects during gameplay.
+- A player reconnects after elimination.
+- A player disconnects during the countdown.
+- The host disconnects.
+- A player attempts to join after the match starts.
+- A player attempts to move before GO.
+- A bike turns too quickly or attempts an impossible reversal.
+- A bike moves at high speed near a trail.
+- An eliminated player's trail must disappear.
+- A spectator attempts to control a living bike.
+- A player attempts to trigger a fake victory.
+- Two simultaneous match-ending events occur.
+- All players are eliminated simultaneously.
+- Players request a rematch at different times.
+
+Never allow these situations to break the match.
+
+32. DEVELOPMENT AND TESTING REQUIREMENTS
+
+Do not stop after building the interface.
+
+Build and test the actual game.
+
+Test the following:
+
+Multiplayer
+
+- Create a room.
+- Join through a room code.
+- Join through a direct friend invitation.
+- Fill all five player slots.
+- Verify the six-character room code.
+- Verify the host and ready system.
+- Verify that the room locks after starting.
+- Test on five separate player sessions where possible.
+- Verify synchronized bike movement and trails.
+- Verify collision results across all clients.
+- Verify spectator switching.
+- Verify reconnection.
+- Verify rematch.
+
+Gameplay
+
+- Test automatic forward movement.
+- Test left/right swipe steering.
+- Test camera switching.
+- Test first-person view.
+- Test third-person view.
+- Test trail creation.
+- Test self-trail collisions.
+- Test other-player trail collisions.
+- Test boundary collisions.
+- Test simultaneous eliminations.
+- Test disappearance of eliminated players' trails.
+- Test the last-player-standing condition.
+- Test the victory wheelie animation.
+
+Player identity
+
+- Generate multiple unique 12-character IDs.
+- Verify that IDs do not duplicate.
+- Test friend requests.
+- Test friend acceptance and removal.
+- Test direct game invitations.
+
+Mobile
+
+- Test different landscape screen sizes.
+- Test touch gestures.
+- Test the eye icon.
+- Test portrait-mode rotate message.
+- Test performance during long matches.
+- Test audio settings.
+- Test PWA installation.
+
+Fix bugs discovered during testing rather than leaving them as known issues.
+
+33. FINAL QUALITY EXPECTATION
+
+The final result must feel like a complete, professionally developed futuristic mobile multiplayer game.
+
+Prioritize these five things above everything else:
+
+1. A genuinely enormous open arena with only glowing outer boundaries and absolutely no internal obstacles.
+2. Smooth classic TRON bike movement with swipe-only left/right steering and continuous automatic forward movement.
+3. Real five-player online multiplayer with proper synchronization, private rooms, persistent player IDs, friends and direct invitations.
+4. Proper elimination and spectator mechanics, including complete trail disappearance and the special simultaneous death message: THEY KISSED THEIR DEATH.
+5. Premium semi-3D graphics, switchable first-person/third-person views and a cinematic wheelie victory animation.
+
+Do not turn this into a small 2D game.
+
+Do not add unwanted obstacles, extra movement controls, reversing, stopping, or an artificial match time limit.
+
+Do not replace any specified feature with a placeholder.
+
+Build the complete game with functional screens, working controls, real backend integration and reliable multiplayer gameplay.
+
+PROJECT NAME: TRON BIKE
