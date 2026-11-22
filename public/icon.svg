@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0A192F" />
+      <stop offset="100%" stop-color="#04060D" />
+    </radialGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0088FF" />
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF2A85" />
+      <stop offset="100%" stop-color="#00F0FF" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgGlow)" />
+  <g opacity="0.25" stroke="#00F0FF" stroke-width="2">
+    <line x1="64" y1="360" x2="448" y2="360" />
+    <line x1="96" y1="400" x2="416" y2="400" />
+    <line x1="160" y1="320" x2="80" y2="448" />
+    <line x1="352" y1="320" x2="432" y2="448" />
+    <line x1="256" y1="320" x2="256" y2="448" />
+  </g>
+  <!-- Light Trail -->
+  <path d="M40 318 L175 318 L175 282 L40 282 Z" fill="url(#neonPink)" opacity="0.85" />
+  <line x1="40" y1="282" x2="175" y2="282" stroke="#FFFFFF" stroke-width="4" />
+  <!-- Rear Wheel -->
+  <circle cx="164" cy="296" r="56" stroke="#00F0FF" stroke-width="14" fill="#04060D" />
+  <circle cx="164" cy="296" r="36" stroke="#00F0FF" stroke-width="4" stroke-opacity="0.6" />
+  <!-- Front Wheel -->
+  <circle cx="372" cy="296" r="56" stroke="#00F0FF" stroke-width="14" fill="#04060D" />
+  <circle cx="372" cy="296" r="36" stroke="#00F0FF" stroke-width="4" stroke-opacity="0.6" />
+  <!-- Aerodynamic Light Cycle Canopy -->
+  <path d="M132 260 C168 188, 250 174, 344 214 L398 256 L360 284 L190 284 Z" fill="#0B1324" stroke="url(#neonCyan)" stroke-width="8" stroke-linejoin="round" />
+  <path d="M210 202 C255 190, 305 202, 338 228 L292 238 L205 224 Z" fill="#00F0FF" fill-opacity="0.35" stroke="#7DF9FF" stroke-width="3" />
+  <line x1="184" y1="256" x2="344" y2="256" stroke="#00F0FF" stroke-width="6" stroke-linecap="round" />
+</svg>
